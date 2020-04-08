@@ -1,0 +1,34 @@
+﻿@page "/Adressen"
+@using ValidatiePOC
+@inject IBackendWebApi WebApi
+@inject NavigationManager NavigationManager
+
+@if (model != null)
+{
+    foreach (var adres in model)
+    {
+        <div class="@(adres.IsBinnenlands ? "" : "inactief")" @onclick="OpenAdres">
+            <div>@adres.Straat @adres.Huisnummer @adres.HuisnummerToevoeging</div>
+            <div>@adres.PostCode @adres.Gemeente</div>
+            <div>@adres.Land</div>
+        </div>
+        <div class="@(adres.IsBinnenlands ? "inactief" : "")">
+            <div>@adres.AdresRegel1</div>
+            <div>@adres.AdresRegel2</div>
+            <div>@adres.PostCode @adres.Land</div>
+        </div>
+    }
+}
+@code {
+    private List<AdresModel> model;
+
+    protected override async Task OnInitializedAsync()
+    {
+        model = await WebApi.Get<List<AdresModel>>("Adressen");
+    }
+
+    private void OpenAdres()
+    {
+        
+    }
+}

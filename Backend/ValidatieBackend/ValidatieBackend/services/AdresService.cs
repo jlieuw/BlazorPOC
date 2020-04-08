@@ -1,5 +1,8 @@
-﻿using System.Threading.Tasks;
+﻿using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using SharedModels;
 using ValidatieBackend.data;
 
@@ -14,6 +17,24 @@ namespace ValidatieBackend.services
             Db = db;
         }
 
+        public async Task<List<AdresModel>> AdressenLijst()
+        {
+            var adressen = await Db.Adressen.Select(a => new AdresModel
+            {
+                Id = a.Id,
+                AdresRegel1 = a.AdresRegel1,
+                AdresRegel2 = a.AdresRegel2,
+                Gemeente = a.Gemeente,
+                Huisnummer = a.Huisnummer,
+                HuisnummerToevoeging = a.HuisnummerToevoeging,
+                Land = a.Land,
+                PostCode = a.PostCode,
+                Straat = a.Straat
+            }).ToListAsync();
+
+            return adressen;
+        }
+
         public async Task<AdresModel> GetAdresById(int id)
         {
             var adres = await Db.Adressen.FindAsync(id);
@@ -21,6 +42,7 @@ namespace ValidatieBackend.services
 
             return new AdresModel
             {
+                Id = adres.Id,
                 AdresRegel1 = adres.AdresRegel1,
                 AdresRegel2 = adres.AdresRegel2,
                 Gemeente = adres.Gemeente,
