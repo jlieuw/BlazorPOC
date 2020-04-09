@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using System.Threading.Tasks;
 using FluentValidation;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -40,7 +37,7 @@ namespace ValidatieBackend.Controllers
         }
 
         [HttpPost]
-        public async Task<ActionResult<AdresModel>> PostAdres(AdresModel model)
+        public async Task<ActionResult<AdresModel>> Post(AdresModel model)
         {
             var validation = await new AdresValidator().ValidateAsync(model);
             if (!validation.IsValid)

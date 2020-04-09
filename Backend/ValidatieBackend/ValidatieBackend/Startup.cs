@@ -28,8 +28,11 @@ namespace ValidatieBackend
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllers();
-            services.AddDbContext<ValidatieContext>(options =>
-                options.UseSqlServer(Configuration.GetConnectionString("SchoolContext")));
+            
+            //sql database:
+            //services.AddDbContext<ValidatieContext>(options => options.UseSqlServer(Configuration.GetConnectionString("SchoolContext")));
+            //in memory database:
+            services.AddDbContext<ValidatieContext>(options => options.UseInMemoryDatabase(databaseName: "SchoolContext"));
             
             // eigen services
             services.AddScoped<IAdresService, AdresService>();
