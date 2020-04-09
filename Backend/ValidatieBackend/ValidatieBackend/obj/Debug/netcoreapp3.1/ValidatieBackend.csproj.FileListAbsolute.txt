@@ -52,3 +52,4 @@ E:\Projects\ValidatiePOC\Backend\ValidatieBackend\ValidatieBackend\bin\Debug\net
 E:\Projects\ValidatiePOC\Backend\ValidatieBackend\ValidatieBackend\obj\Debug\netcoreapp3.1\ValidatieBackend.dll
 E:\Projects\ValidatiePOC\Backend\ValidatieBackend\ValidatieBackend\obj\Debug\netcoreapp3.1\ValidatieBackend.pdb
 E:\Projects\ValidatiePOC\Backend\ValidatieBackend\ValidatieBackend\obj\Debug\netcoreapp3.1\ValidatieBackend.genruntimeconfig.cache
+E:\Projects\ValidatiePOC\Backend\ValidatieBackend\ValidatieBackend\bin\Debug\netcoreapp3.1\Microsoft.EntityFrameworkCore.InMemory.dll
