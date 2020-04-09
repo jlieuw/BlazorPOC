@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Http;
+using FluentValidation;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using SharedModels;
 using System.Threading.Tasks;
@@ -35,7 +36,8 @@ namespace ValidatieBackend.Controllers
 
         [HttpPost]
         [ProducesResponseType(StatusCodes.Status201Created)]
-        public async Task<ActionResult<AdresModel>> PostAdres(AdresModel model)
+        public async Task<ActionResult<AdresModel>> Post(AdresModel model)
+
         {
             var validation = await new AdresValidator().ValidateAsync(model);
             if (!validation.IsValid)
