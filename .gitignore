@@ -358,3 +358,6 @@ MigrationBackup/
 
 # Ionide (cross platform F# VS Code tools) working folder
 .ionide/
+Backend/ValidatieBackend/ValidatieBackend/obj
+Backend/ValidatieBackend/ValidatieBackend/bin/Debug
+Backend/ValidatieBackend/ValidatieBackend/bin
