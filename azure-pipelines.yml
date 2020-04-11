@@ -11,9 +11,19 @@ pool:
 
 variables:
   buildConfiguration: 'Release'
-
+ 
 steps:
 - task: DotNetCoreCLI@2
   inputs:
     command: 'build'
     projects: 'Backend/ValidatieBackend/ValidatieBackend/ValidatieBackend.csproj'
+- task: DotNetCoreCLI@2
+  inputs:
+    command: 'publish'
+    publishWebProjects: false
+    projects: 'Backend/ValidatieBackend/ValidatieBackend/ValidatieBackend.csproj'
+- task: PublishBuildArtifacts@1
+  inputs:
+    PathtoPublish: '$(Build.ArtifactStagingDirectory)'
+    ArtifactName: 'drop'
+    publishLocation: 'Container'
