@@ -5,6 +5,9 @@ maar ook een voorbeeld softewarearchitectuur opzetten op basis waarvan we kunnen
 
 **let op** in dit project zit ook een zelfstandige backend solution verstopt (Backend\ValidatieBackend)
 
+## build status
+[![Build Status](https://dev.azure.com/palulu/Validaties/_apis/build/status/jlieuw.BlazorPOC?branchName=master)](https://dev.azure.com/palulu/Validaties/_build/latest?definitionId=9&branchName=master)
+
 ## technieken die ik tot nu toe gebruik heb:
 .net core
 asp.net core
