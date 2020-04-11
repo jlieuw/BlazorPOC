@@ -22,7 +22,7 @@ steps:
     command: 'publish'
     publishWebProjects: false
     projects: 'Backend/ValidatieBackend/ValidatieBackend/ValidatieBackend.csproj'
-    arguments: '-r win-x64 --configuration $(BuildConfiguration) --output $(Build.ArtifactStagingDirectory)'
+    arguments: '-r win-x86 --configuration $(BuildConfiguration) --output $(Build.ArtifactStagingDirectory)'
     zipAfterPublish: true
 - task: PublishBuildArtifacts@1
   inputs:
