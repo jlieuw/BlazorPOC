@@ -16,4 +16,4 @@ steps:
 - task: DotNetCoreCLI@2
   inputs:
     command: 'build'
-    projects: '/Backend/ValidatieBackend/ValidatieBackend/ValidatieBackend.csproj'
+    projects: 'Backend/ValidatieBackend/ValidatieBackend/ValidatieBackend.csproj'
