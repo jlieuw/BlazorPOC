@@ -18,11 +18,20 @@ steps:
     SonarQube: 'rsolsonarqube'
     scannerMode: 'MSBuild'
     projectKey: 'validatiebackend'
+    extraProperties: |
+      # Additional properties that will be passed to the scanner, 
+      # Put one key=value per line, example:
+      # sonar.exclusions=**/*.bin
+      sonar.projectName=validatiebackend
+      sonar.projectKey=validatiebackend
 - task: DotNetCoreCLI@2
   inputs:
     command: 'build'
     projects: 'Backend/ValidatieBackend/ValidatieBackend/ValidatieBackend.csproj'
 - task: SonarQubeAnalyze@4
+- task: SonarQubePublish@4
+  inputs:
+    pollingTimeoutSec: '300'
 - task: DotNetCoreCLI@2
   inputs:
     command: 'publish'
