@@ -13,10 +13,16 @@ variables:
   buildConfiguration: 'Release'
  
 steps:
+- task: SonarQubePrepare@4
+  inputs:
+    SonarQube: 'rsolsonarqube'
+    scannerMode: 'MSBuild'
+    projectKey: 'validatiebackend'
 - task: DotNetCoreCLI@2
   inputs:
     command: 'build'
     projects: 'Backend/ValidatieBackend/ValidatieBackend/ValidatieBackend.csproj'
+- task: SonarQubeAnalyze@4
 - task: DotNetCoreCLI@2
   inputs:
     command: 'publish'
