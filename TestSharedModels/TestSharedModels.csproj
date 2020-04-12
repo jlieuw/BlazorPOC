@@ -6,6 +6,7 @@
     <IsPackable>false</IsPackable>
 
     <LangVersion>8</LangVersion>
+    <ProjectGuid>{bf1abcd5-ffc5-491b-91e8-aec3a020ca6b}</ProjectGuid>
   </PropertyGroup>
 
   <ItemGroup>

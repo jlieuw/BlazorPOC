@@ -3,6 +3,7 @@
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
     <RazorLangVersion>3.0</RazorLangVersion>
+    <ProjectGuid>{0e4d7be3-586b-4caf-a91f-f3c087f65971}</ProjectGuid>
   </PropertyGroup>
 
 
