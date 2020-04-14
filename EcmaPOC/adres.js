@@ -25,7 +25,7 @@ class AdresForm {
 
     handleValidationErrors(msgs) {
         let errorsel = document.getElementById('errors');
-        errorsel.innerHTML = msgs;
+        errorsel.innerHTML = msgs.replace(/\r\n/g, '<br />');
         errorsel.classList.remove('hide');
     }
 
@@ -42,7 +42,7 @@ class AdresForm {
     extractFormData = elements => [].reduce.call(elements, (data, element) => {
         if (this.isValidElement(element)) {
             if (this.isNumber(element)) {
-                data[element.name] = parseInt(element.value);
+                data[element.name] = parseInt(element.value || 0);
             } else {
                 data[element.name] = element.value;
             }
