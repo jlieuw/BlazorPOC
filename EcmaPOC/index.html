@@ -1,0 +1,109 @@
+<html>
+
+<head>
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+        integrity="sha256-pasqAKBDmFT4eHoN2ndd6lN370kFiGUFyTiUHWhU7k8=" crossorigin="anonymous"></script>
+
+    <meta charset="UTF-8" />
+    <link rel="stylesheet" href="./style.css" />
+
+    <script type="text/javascript">
+        $(window, document, undefined).ready(function () {
+
+            $('input').blur(function () {
+                var $this = $(this);
+                if ($this.val())
+                    $this.addClass('used');
+                else
+                    $this.removeClass('used');
+            });
+
+            var $ripples = $('.ripples');
+
+            $ripples.on('click.Ripples', function (e) {
+
+                var $this = $(this);
+                var $offset = $this.parent().offset();
+                var $circle = $this.find('.ripplesCircle');
+
+                var x = e.pageX - $offset.left;
+                var y = e.pageY - $offset.top;
+
+                $circle.css({
+                    top: y + 'px',
+                    left: x + 'px'
+                });
+
+                $this.addClass('is-active');
+
+            });
+
+            $ripples.on('animationend webkitAnimationEnd mozAnimationEnd oanimationend MSAnimationEnd',
+                function (e) {
+                    $(this).removeClass('is-active');
+                });
+
+            $('#Subscribe').on('click',
+                function (e) {
+
+                });
+
+        });
+    </script>
+</head>
+
+<body>
+    <form>
+        <div class="group">
+            <input type="text" name="straat"><span class="highlight"></span><span class="bar"></span>
+            <label>Straat</label>
+        </div>
+        <div class="group">
+            <input type="text" name="adresRegel1"><span class="highlight"></span><span class="bar"></span>
+            <label>Adres 1</label>
+        </div>
+        <div class="group">
+            <input type="text" name="adresRegel2"><span class="highlight"></span><span class="bar"></span>
+            <label>Adres 2</label>
+        </div>
+        <div class="group">
+            <input type="text" name="postCode"><span class="highlight"></span><span class="bar"></span>
+            <label>Postcode</label>
+        </div>
+        <div class="group">
+            <input type="number" min="0" name="huisnummer"><span class="highlight"></span><span class="bar"></span>
+            <label>Huisnummer</label>
+        </div>
+        <div class="group">
+            <input type="text" name="huisnummerToevoeging"><span class="highlight"></span><span class="bar"></span>
+            <label>Huisnummer toevoeging</label>
+        </div>
+        <div class="group">
+            <input type="text" name="gemeente"><span class="highlight"></span><span class="bar"></span>
+            <label>Gemeente</label>
+        </div>
+        <div class="group">
+            <input type="text" name="land"><span class="highlight"></span><span class="bar"></span>
+            <label>Land</label>
+        </div>
+        <div class="group errors hide" id="errors">
+
+        </div>
+        <button type="button" class="button buttonBlue" id="Subscribe">Subscribe
+            <div class="ripples buttonRipples"><span class="ripplesCircle"></span></div>
+        </button>
+    </form>
+    <footer>
+
+        <hgroup>
+            <h1>Material Design Form</h1>
+            <h3>By Josh Adamous</h3>
+        </hgroup>
+        <a href="http://www.polymer-project.org/" target="_blank"><img
+                src="https://www.polymer-project.org/images/logos/p-logo.svg"></a>
+        <p>You Gotta Love <a href="http://www.polymer-project.org/" target="_blank">Google</a></p>
+    </footer>
+</body>
+<script src="./adres.js" type="text/javascript"></script>
+
+</html>
